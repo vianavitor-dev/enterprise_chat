@@ -32,6 +32,11 @@ public class GroupMember implements Manageable {
     @Column(name = "is_active")
     private boolean active;
 
+    // it indicates who's in charge of the group (department/ team),
+    // such as, manager or team leader
+    @Column(name = "is_in_charge")
+    private boolean inCharge;
+
     public Long getId() {
         return id;
     }
@@ -54,6 +59,14 @@ public class GroupMember implements Manageable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public boolean isInCharge() {
+        return inCharge;
+    }
+
+    public void setInCharge(boolean inCharge) {
+        this.inCharge = inCharge;
     }
 
     @Override

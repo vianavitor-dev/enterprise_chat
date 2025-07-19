@@ -6,6 +6,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
+@DiscriminatorValue("team")
 public class Team extends Group {
     @ManyToOne
     @JoinColumn(name = "department_id")
