@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface MessageDAO extends GenericDao<Message, Long> {
 
-    // share the message with other groups
-    void share(Long id, List<Long> destinations);
+    // - Service Layer: share the message with other groups
+    // void share(Long id, List<Long> destinations);
 
     // get all messages created by the user.id
     List<Message> getByCreatorId(Long id);

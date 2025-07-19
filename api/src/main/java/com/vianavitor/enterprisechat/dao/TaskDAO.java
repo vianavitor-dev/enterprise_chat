@@ -6,8 +6,8 @@ import java.util.List;
 public interface TaskDAO extends
         GenericDao<Task, Long> {
 
-    // share the current task with the other groups
-    void share(Long id, List<Long> destinations);
+    // - Service Layer: share the current task with the other groups
+    // void share(Long id, List<Long> destinations);
 
     List<Task> getByName(String name);
 
