@@ -11,6 +11,6 @@ public interface TaskDAO extends
 
     List<Task> getByName(String name);
 
-    // get all the tasks that belongs to determined group
-    List<Task> getFromGroup(Long groupId);
+    // get all the tasks that belongs to determined user
+    List<Task> getByUserId(Long userId);
 }
