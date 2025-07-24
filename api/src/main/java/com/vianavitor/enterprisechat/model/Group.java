@@ -38,11 +38,11 @@ public class Group {
         this.name = name;
     }
 
-    public int getMembers_count() {
+    public int getMembersCount() {
         return membersCount;
     }
 
-    public void setMembers_count(int membersCount) {
+    public void setMembersCount(int membersCount) {
         this.membersCount = membersCount;
     }
 }
