@@ -17,7 +17,7 @@ public class TaskDAOImpl implements TaskDAO {
     @Override
     public List<Task> getByName(String name) {
         TypedQuery<Task> query = em.createQuery(
-                "SELECT t FROM Task WHERE t.name = :name",
+                "SELECT t FROM Task t WHERE t.name = :name",
                 Task.class
         );
 
@@ -28,7 +28,7 @@ public class TaskDAOImpl implements TaskDAO {
     @Override
     public List<Task> getByUserId(Long userId) {
         TypedQuery<Task> query = em.createQuery(
-                "SELECT t FROM Task WHERE t.id = :id",
+                "SELECT t FROM Task t WHERE t.id = :id",
                 Task.class
         );
 
@@ -39,7 +39,7 @@ public class TaskDAOImpl implements TaskDAO {
     @Override
     public List<Task> getAll() {
         TypedQuery<Task> query = em.createQuery(
-                "SELECT t FROM Task",
+                "SELECT t FROM Task t",
                 Task.class
         );
         

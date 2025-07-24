@@ -8,10 +8,13 @@ import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UserDAOImpl implements UserDAO {
     @Autowired
     private EntityManager em;
@@ -19,7 +22,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public Optional<User> getByEmail(String email) {
         TypedQuery<User> query = em.createQuery(
-                "SELECT u FROM User WHERE u.email = ?",
+                "SELECT u FROM User u WHERE u.email = ?",
                 User.class
         );
 
@@ -34,7 +37,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public List<User> getAll() {
         TypedQuery<User> query = em.createQuery(
-                "SELECT u FROM User",
+                "SELECT u FROM User u",
                 User.class
         );
 

@@ -17,7 +17,7 @@ public class MessageDAOImpl implements MessageDAO {
     @Override
     public List<Message> getByCreatorId(Long id) {
         TypedQuery<Message> query = em.createQuery(
-                "SELECT m FROM Message WHERE m.creator.id = :id",
+                "SELECT m FROM Message m WHERE m.creator.id = :id",
                 Message.class
         );
 
@@ -28,7 +28,7 @@ public class MessageDAOImpl implements MessageDAO {
     @Override
     public List<Message> getAll() {
         TypedQuery<Message> query = em.createQuery(
-                "SELECT m FROM Message",
+                "SELECT m FROM m Message",
                 Message.class
         );
 

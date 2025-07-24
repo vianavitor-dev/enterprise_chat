@@ -17,7 +17,7 @@ public class DepartmentDAOImpl implements DepartmentDAO {
     @Override
     public List<Department> getByName(String name) {
         TypedQuery<Department> query = em.createQuery(
-                "SELECT d FROM Department WHERE d.name = :name",
+                "SELECT d FROM Department d WHERE d.name = :name",
                 Department.class
         );
 
@@ -28,7 +28,7 @@ public class DepartmentDAOImpl implements DepartmentDAO {
     @Override
     public List<Department> getAll() {
         TypedQuery<Department> query = em.createQuery(
-                "SELECT d FROM Department",
+                "SELECT d FROM Department d",
                 Department.class
         );
 

@@ -17,7 +17,7 @@ public class GroupDAOImpl implements GroupDAO {
     @Override
     public List<Group> getByType(String type) {
         TypedQuery<Group> query = em.createQuery(
-                "SELECT g FROM Group WHERE g.type = :type",
+                "SELECT g FROM Group g WHERE g.type = :type",
                 Group.class
         );
 
@@ -28,7 +28,7 @@ public class GroupDAOImpl implements GroupDAO {
     @Override
     public List<Group> getByName(String name) {
         TypedQuery<Group> query = em.createQuery(
-                "SELECT g FROM Group WHERE g.name = :name",
+                "SELECT g FROM Group g WHERE g.name = :name",
                 Group.class
         );
 
@@ -39,7 +39,7 @@ public class GroupDAOImpl implements GroupDAO {
     @Override
     public List<Group> getAll() {
         TypedQuery<Group> query = em.createQuery(
-                "SELECT g FROM Group",
+                "SELECT g FROM Group g",
                 Group.class
         );
 

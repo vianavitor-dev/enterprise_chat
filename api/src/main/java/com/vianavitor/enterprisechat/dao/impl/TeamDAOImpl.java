@@ -17,7 +17,7 @@ public class TeamDAOImpl implements TeamDAO {
     @Override
     public List<Team> getByName(String name) {
         TypedQuery<Team> query = em.createQuery(
-                "SELECT t FROM Team WHERE t.name = :name",
+                "SELECT t FROM Team t WHERE t.name = :name",
                 Team.class
         );
 
@@ -28,7 +28,7 @@ public class TeamDAOImpl implements TeamDAO {
     @Override
     public List<Team> getByDepartment(Long departmentId) {
         TypedQuery<Team> query = em.createQuery(
-                "SELECT t FROM Team WHERE t.department.id = :id",
+                "SELECT t FROM Team t WHERE t.department.id = :id",
                 Team.class
         );
 
@@ -39,7 +39,7 @@ public class TeamDAOImpl implements TeamDAO {
     @Override
     public List<Team> getAll() {
         TypedQuery<Team> query = em.createQuery(
-                "SELECT t FROM Team",
+                "SELECT t FROM Team t",
                 Team.class
         );
 
