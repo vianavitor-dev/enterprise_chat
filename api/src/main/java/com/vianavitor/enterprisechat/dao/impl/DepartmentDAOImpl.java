@@ -6,10 +6,12 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class DepartmentDAOImpl implements DepartmentDAO {
     @Autowired
     private EntityManager em;
@@ -22,6 +24,17 @@ public class DepartmentDAOImpl implements DepartmentDAO {
         );
 
         query.setParameter("name", name);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Department> getByDuplicateName(String name) {
+        TypedQuery<Department> query = em.createQuery(
+                "SELECT d FROM Department d WHERE d.name LIKE :name",
+                Department.class
+        );
+        
+        query.setParameter("name", name + " #_");
         return query.getResultList();
     }
 
