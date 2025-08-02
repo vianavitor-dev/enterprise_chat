@@ -30,11 +30,12 @@ public class DepartmentDAOImpl implements DepartmentDAO {
     @Override
     public List<Department> getByDuplicateName(String name) {
         TypedQuery<Department> query = em.createQuery(
-                "SELECT d FROM Department d WHERE d.name LIKE :name",
+                "SELECT d FROM Department d WHERE d.name LIKE ? OR d.name = ?",
                 Department.class
         );
-        
-        query.setParameter("name", name + " #_");
+
+        query.setParameter(0, name + " #_"); // search by duplicate names
+        query.setParameter(1, name); // search by name
         return query.getResultList();
     }
 
